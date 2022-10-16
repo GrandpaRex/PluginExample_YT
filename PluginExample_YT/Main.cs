@@ -21,7 +21,7 @@ namespace PluginExample_YT
         internal async Task Command()
         {
             RegisterCommand("minfo", new Action<int, List<object>, string>((source, args, rawCommand) =>
-                {
+            {
                     //Get Player data
                     PlayerData pdata = Utilities.GetPlayerData();
 
@@ -34,13 +34,13 @@ namespace PluginExample_YT
                     string pname = pdata.DisplayName;
 
                     //Trigger chat message
-                    TriggerEvent("chatLaddMessage", new
+                    TriggerEvent("chat:addMessage", new
                     {
                         color = new[] {178,190,181},
                         args = new[] {$"{badge} {pname}, {rank} | {deptln} | {deptid} {dept}"}
                     });
 
-                }), false);
+            }), false);
         }
     }
 }
