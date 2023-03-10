@@ -22,24 +22,23 @@ namespace PluginExample_YT
         {
             RegisterCommand("minfo", new Action<int, List<object>, string>((source, args, rawCommand) =>
             {
-                    //Get Player data
-                    PlayerData pdata = Utilities.GetPlayerData();
+                //Get Player data
+                PlayerData pdata = Utilities.GetPlayerData();
 
-                    //Assign all data to variables
-                    string badge = pdata.Callsign;
-                    string dept = pdata.DepartmentShortName;
-                    int deptid = pdata.DepartmentID;
-                    string deptln = pdata.Department;
-                    string rank = pdata.Rank;
-                    string pname = pdata.DisplayName;
+                //Assign all data to variables
+                string badge = pdata.Callsign;
+                string dept = pdata.DepartmentShortName;
+                int deptid = pdata.DepartmentID;
+                string deptln = pdata.Department;
+                string rank = pdata.Rank;
+                string pname = pdata.DisplayName;
 
-                    //Trigger chat message
-                    TriggerEvent("chat:addMessage", new
-                    {
-                        color = new[] {178,190,181},
-                        args = new[] {$"{badge} {pname}, {rank} | {deptln} | {deptid} {dept}"}
-                    });
-
+                //Trigger a chat message
+                TriggerEvent("chat:addMessage", new
+                {
+                    color = new[] {178,190,181},
+                    args = new[] {$"{badge} {pname}, {rank} | {deptln} | {deptid} {dept}"}
+                });
             }), false);
         }
     }
